@@ -27,32 +27,34 @@ if df is not None:
     departement = st.selectbox("Select your Département", departement_codes)
     circonscription = st.selectbox("Select your Circonscription", circo_values)
 
-    # Find the matching row
-    matching_row = df[(df['departementCode'] == departement) & (df['circo'] == circonscription)]
+    # Button to submit the selection
+    if st.button("Submit"):
+        # Find the matching row
+        matching_row = df[(df['departementCode'] == departement) & (df['circo'] == circonscription)]
 
-    # Display results
-    if not matching_row.empty:
-        st.write("Here are the details of the matching député:")
-        st.write(matching_row)
+        # Display results
+        if not matching_row.empty:
+            st.write("Here are the details of the matching député:")
+            st.write(matching_row)
 
-        # Extract the Twitter handle from the matching row
-        twitter_handle = matching_row['twitter'].values[0]
+            # Extract the Twitter handle from the matching row
+            twitter_handle = matching_row['twitter'].values[0]
 
-        # Check if a Twitter handle is available
-        if pd.notna(twitter_handle) and twitter_handle != '':
-            # Build the tweet message
-            tweet_message = f"@{twitter_handle} Sauf erreur de notre part, vous avez été élu·e grâce aux voix du front républicain. Il est encore temps d’en être digne. Votez la censure contre ce Gouvernement qui remet en cause l’état de droit et continuera la casse des services publics."
+            # Check if a Twitter handle is available
+            if pd.notna(twitter_handle) and twitter_handle != '':
+                # Build the tweet message
+                tweet_message = f"@{twitter_handle} Sauf erreur de notre part, vous avez été élu·e grâce aux voix du front républicain. Il est encore temps d’en être digne. Votez la censure contre ce Gouvernement qui remet en cause l’état de droit et continuera la casse des services publics."
 
-            # Generate the Twitter URL
-            twitter_url = f"https://twitter.com/intent/tweet?text={tweet_message}"
+                # Generate the Twitter URL
+                twitter_url = f"https://twitter.com/intent/tweet?text={tweet_message}"
 
-            # Display the link to tweet
-            st.write("Click the link below to tweet the following message:")
-            st.write(f"**Tweet Message**: {tweet_message}")
-            st.markdown(f"[Click here to Tweet]({twitter_url})")
+                # Display the link to tweet
+                st.write("Click the link below to tweet the following message:")
+                st.write(f"**Tweet Message**: {tweet_message}")
+                st.markdown(f"[Click here to Tweet]({twitter_url})")
+            else:
+                st.write("This député does not have a Twitter handle.")
         else:
-            st.write("This député does not have a Twitter handle.")
-    else:
-        st.write("No matching député found.")
+            st.write("No matching député found.")
 else:
     st.write("Data could not be loaded.")
