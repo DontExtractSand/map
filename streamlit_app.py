@@ -11,7 +11,7 @@ Simply select your département and circonscription, and the app will display th
 # Function to load the CSV file from GitHub
 @st.cache
 def load_data():
-    url = "https://github.com/DontExtractSand/map/blob/main/deputes-active.csv"
+    url = "https://raw.githubusercontent.com/DontExtractSand/map/refs/heads/main/deputes-active.csv"
     data = pd.read_csv(url)
     return data
 
