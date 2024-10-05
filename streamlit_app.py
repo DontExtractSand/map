@@ -113,10 +113,7 @@ if df is not None:
             address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
             postcard_image_url="https://github.com/DontExtractSand/map/blob/main/postcard.jpg"
             postcard_text = f"""
-            Chèr.e député.e,
-            Le 7 juillet dernier,Sauf erreur de ma part, vous avez été élu.e, lors des élections législatives, grâce aux voix du barrage républicain contre l'extrême-droite.
-            Merci de vous montrer digne de ce barrage et de voter la censure du gouvernement Barnier.
-            Cordialement,
+            Chèr.e député.e, Le 7 juillet dernier, sauf erreur de ma part, vous avez été élu.e, lors des élections législatives, grâce aux voix du barrage républicain contre l'extrême-droite. Merci de vous montrer digne de ce barrage et de voter la censure du gouvernement Barnier. Cordialement,
             """
 
             # Display the postcard preview (image)
@@ -125,8 +122,8 @@ if df is not None:
             st.image(postcard_image_url, caption="Postcard Preview", use_column_width=True)
 
             # Display recipient and address
-            st.write(f"**Destinataire**: {first_name} {last_name}")
-            st.write(f"**Addresse**: {address}")
+            st.write(f"**Destinataire** à préciser : {first_name} {last_name}")
+            st.write(f"**Addresse** : {address}")
         
         else:
             st.write("Nous n'avons pas trouvé de député correspondant.")
