@@ -3,9 +3,9 @@ import pandas as pd
 import urllib.parse
 
 # Display title and description of the app
-st.title("Les suites du front républicain")
+st.title("Parce que nos votes les obligent...")
 st.write("""
-Cette application vous aide à trouver les coordonnées de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement.
+Cette application vous aide à trouver les coordonnées complètes de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement.
 Si vous avez besoin d'aide pour trouver votre circonscription, vous pouvez utiliser cette carte :
 """)
 st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE", label="https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE")
@@ -43,7 +43,10 @@ if df is not None:
             twitter_handle = matching_row['twitter'].values[0]
             facebook_handle = matching_row['facebook'].values[0]
             email_address = matching_row['mail'].values[0]
-            
+            first_name = matching_row['prenom'].values[0]
+            last_name = matching_row['nom'].values[0]
+            civ = matching_row['civ'].values[0]
+
             ### Twitter Message ###
             if pd.notna(twitter_handle) and twitter_handle != '':
                 # Build the tweet message
@@ -87,7 +90,7 @@ if df is not None:
                 # Build the email subject and body
                 email_subject = "Votez la censure pour être digne du front républicain"
                 email_body = f"""
-                Le 7 juillet dernier, un formidable élan s’est levé dans le pays pour battre dans les urnes l’extrême-droite, ses idées et son programme. Pourtant, Emmanuel Macron refuse d’entendre l’appel des urnes. Pire, il s’entête et forme un gouvernement sans légitimité politique ou populaire, en nommant Michel Barnier, dont le gouvernement réactionnaire perpétuera une politique de mépris et de casse sociale, grâce à la bienveillance du RN. Les propos scandaleux du ministre de l’Intérieur Retailleau sur l’immigration et sur l’Etat de droit en sont les premières preuves. Montrez-vous digne du front républicain, et refusez l’alliance de fait entre Emmanuel Macron, la droite radicalisée et l’extrême-droite. Votez la censure.
+                {civ} {first_name} {last_name}, Le 7 juillet dernier, un formidable élan s’est levé dans le pays pour battre dans les urnes l’extrême-droite, ses idées et son programme. Pourtant, Emmanuel Macron refuse d’entendre l’appel des urnes. Pire, il s’entête et forme un gouvernement sans légitimité politique ou populaire, en nommant Michel Barnier, dont le gouvernement réactionnaire perpétuera une politique de mépris et de casse sociale, grâce à la bienveillance du RN. Les propos scandaleux du ministre de l’Intérieur Retailleau sur l’immigration et sur l’Etat de droit en sont les premières preuves. Montrez-vous digne du front républicain, et refusez l’alliance de fait entre Emmanuel Macron, la droite radicalisée et l’extrême-droite. Votez la censure.
                 """
 
                 # URL encode the subject and body for the mailto link
