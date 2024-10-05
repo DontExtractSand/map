@@ -56,8 +56,8 @@ if df is not None:
 
                 # Display the link to tweet
                 st.write("**Solution 1 : Interpeler votre député sur X/Twitter** avec le message suivant :")
-                st.write(f"**Tweet Message**: {tweet_message}")
-                st.markdown(f"[Click here to Tweet]({twitter_url})")
+                st.write(f"**Votre tweet **: {tweet_message}")
+                st.markdown(f"[Cliquer ici pour twitter ce message]({twitter_url})")
             else:
                 st.write("Ce député n'a pas de compte Twitter connu dans notre base.")
             
@@ -65,20 +65,19 @@ if df is not None:
             if pd.notna(facebook_handle) and facebook_handle != '':
                 # Build the Facebook message
                 facebook_message = f"""
-                Le 7 juillet dernier, un formidable élan s’est levé dans le pays pour battre dans les urnes l’extrême-droite, ses idées et son programme.
-
-                Pourtant, Emmanuel Macron refuse d’entendre l’appel des urnes. Pire, il s’entête et forme un gouvernement sans légitimité politique ou populaire, en nommant Michel Barnier, dont le gouvernement réactionnaire perpétuera une politique de mépris et de casse sociale, grâce à la bienveillance du RN. Les propos scandaleux du ministre de l’Intérieur Retailleau sur l’immigration et sur l’Etat de droit en sont les premières preuves. 
-
-                @{facebook_handle}, montrez-vous digne du front républicain, et refusez l’alliance de fait entre Emmanuel Macron, la droite radicalisée et l’extrême-droite. Votez la censure.
+                Le 7 juillet dernier, un formidable élan s’est levé dans le pays pour battre dans les urnes l’extrême-droite, ses idées et son programme. Pourtant, Emmanuel Macron refuse d’entendre l’appel des urnes. Pire, il s’entête et forme un gouvernement sans légitimité politique ou populaire, en nommant Michel Barnier, dont le gouvernement réactionnaire perpétuera une politique de mépris et de casse sociale, grâce à la bienveillance du RN. Les propos scandaleux du ministre de l’Intérieur Retailleau sur l’immigration et sur l’Etat de droit en sont les premières preuves. @{facebook_handle}, montrez-vous digne du front républicain, et refusez l’alliance de fait entre Emmanuel Macron, la droite radicalisée et l’extrême-droite. Votez la censure.
                 """
 
+                # URL encode the tweet message to handle special characters
+                encoded_facebook_message = urllib.parse.quote(facebook_message)
+
                 # Generate the Facebook share URL
-                facebook_url = f"https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com&quote={facebook_message}"
+                facebook_url = f"https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com&quote={encoded_facebook_message}"
 
                 # Display the link to post on Facebook
-                st.write("Click the link below to post the following message on Facebook:")
-                st.write(f"**Facebook Message**: {facebook_message}")
-                st.markdown(f"[Click here to Post on Facebook]({facebook_url})")
+                st.write("**Solution 1 : Interpeler votre député sur Facebook** avec le message suivant :")
+                st.write(f"**Message Facebook**: {facebook_message}")
+                st.markdown(f"[Cliquer ici pour poster sur Facebook]({facebook_url})")
             else:
                 st.write("Ce député n'a pas de compte Facebook connu dans notre base.")
         else:
