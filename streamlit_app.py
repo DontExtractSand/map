@@ -45,13 +45,13 @@ if df is not None:
             ### Twitter Message ###
             if pd.notna(twitter_handle) and twitter_handle != '':
                 # Build the tweet message
-                tweet_message = f"@{twitter_handle} Sauf erreur de notre part, vous avez été élu·e grâce aux voix du front républicain. Il est encore temps d’en être digne. Votez la censure contre ce Gouvernement qui remet en cause l’état de droit et continuera la casse des services publics."
+                tweet_message = f"{twitter_handle} Sauf erreur de notre part, vous avez été élu·e grâce aux voix du front républicain. Il est encore temps d’en être digne. Votez la censure contre ce Gouvernement qui remet en cause l’état de droit et continuera la casse des services publics."
 
                 # Generate the Twitter URL
                 twitter_url = f"https://twitter.com/intent/tweet?text={tweet_message}"
 
                 # Display the link to tweet
-                st.write("Click the link below to tweet the following message:")
+                st.write("**Solution 1 : Interpeler votre député sur X/Twitter** avec le message suivant :")
                 st.write(f"**Tweet Message**: {tweet_message}")
                 st.markdown(f"[Click here to Tweet]({twitter_url})")
             else:
