@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import urllib.parse
 
 # Display title and description of the app
 st.title("Les suites du front républicain")
@@ -47,8 +48,11 @@ if df is not None:
                 # Build the tweet message
                 tweet_message = f"{twitter_handle} Sauf erreur de notre part, vous avez été élu·e grâce aux voix du front républicain. Il est encore temps d’en être digne. Votez la censure contre ce Gouvernement qui remet en cause l’état de droit et continuera la casse des services publics."
 
+                # URL encode the tweet message to handle special characters
+                encoded_tweet_message = urllib.parse.quote(tweet_message)
+
                 # Generate the Twitter URL
-                twitter_url = f"https://twitter.com/intent/tweet?text={tweet_message}"
+                twitter_url = f"https://twitter.com/intent/tweet?text={encoded_tweet_message}"
 
                 # Display the link to tweet
                 st.write("**Solution 1 : Interpeler votre député sur X/Twitter** avec le message suivant :")
