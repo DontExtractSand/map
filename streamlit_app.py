@@ -121,7 +121,7 @@ if df is not None:
             # Display the postcard preview (image)
             st.write("**Solution 4 : envoyez une carte postale à votre député** avec le message suivant :")
             st.write(f"{postcard_text}")
-            st.image(postcard_image_url, caption="Postcard Preview", use_column_width=True)
+            st.image(postcard_image_url, use_column_width=True)
             st.page_link(postcard_pdf_url, label="Lien vers le PDF pour impression")
 
             # Display recipient and address
