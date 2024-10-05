@@ -111,7 +111,7 @@ if df is not None:
 
             # Postcard text
             address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
-            postcard_image_url="https://drive.google.com/file/d/14YN2Neg33lhUKIJ2Nw31NSGD5hHH5RMN/view?usp=drive_link"
+            postcard_image_url="https://github.com/DontExtractSand/map/blob/main/postcard.jpg"
             postcard_text = f"""
             Chèr.e député.e,
             Le 7 juillet dernier,Sauf erreur de ma part, vous avez été élu.e, lors des élections législatives, grâce aux voix du barrage républicain contre l'extrême-droite.
