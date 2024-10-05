@@ -42,7 +42,8 @@ if df is not None:
             # Extract the Twitter handle from the matching row
             twitter_handle = matching_row['twitter'].values[0]
             facebook_handle = matching_row['facebook'].values[0]
-
+            email_address = matching_row['mail'].values[0]
+            
             ### Twitter Message ###
             if pd.notna(twitter_handle) and twitter_handle != '':
                 # Build the tweet message
