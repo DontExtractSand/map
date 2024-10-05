@@ -8,7 +8,7 @@ st.write("""
 Cette application vous aide à trouver les coordonnées de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement.
 Si vous avez besoin d'aide pour trouver votre circonscription, vous pouvez utiliser cette carte :
 """)
-st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE", label="https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE")
+st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/formulaire", label="https://www2.assemblee-nationale.fr/recherche-localisee/formulaire")
 
 # Function to load the CSV file from GitHub
 @st.cache
