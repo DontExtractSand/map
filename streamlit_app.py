@@ -99,6 +99,8 @@ if df is not None:
 
                 # Display the link to send an email
                 st.write("**Solution 3 : écrivez par email à votre député** avec le message suivant :")
+                st.write(f"L'adresse : {email_address}")
+                st.write(f"Le sujet du message : {email_subject}")
                 st.write(f"Votre email : {email_body}")
                 st.markdown(f"[Cliquez ici pour envoyer un email]({mailto_link})")
             else:
