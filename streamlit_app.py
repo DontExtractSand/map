@@ -56,7 +56,7 @@ if df is not None:
 
                 # Display the link to tweet
                 st.write("**Solution 1 : Interpeler votre député sur X/Twitter** avec le message suivant :")
-                st.write(f"**Votre tweet **: {tweet_message}")
+                st.write(f"Votre tweet : {tweet_message}")
                 st.markdown(f"[Cliquer ici pour twitter ce message]({twitter_url})")
             else:
                 st.write("Ce député n'a pas de compte Twitter connu dans notre base.")
@@ -76,7 +76,7 @@ if df is not None:
 
                 # Display the link to post on Facebook
                 st.write("**Solution 1 : Interpeler votre député sur Facebook** avec le message suivant :")
-                st.write(f"**Message Facebook**: {facebook_message}")
+                st.write(f"Votre message Facebook : {facebook_message}")
                 st.markdown(f"[Cliquer ici pour poster sur Facebook]({facebook_url})")
             else:
                 st.write("Ce député n'a pas de compte Facebook connu dans notre base.")
