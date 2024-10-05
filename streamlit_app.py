@@ -2,11 +2,12 @@ import streamlit as st
 import pandas as pd
 
 # Display title and description of the app
-st.title("Député Finder App")
+st.title("Les suites du front républicain")
 st.write("""
-This app helps you find your député based on your département and circonscription.
-Simply select your département and circonscription, and the app will display the details of the matching député.
+Cette application vous aide à trouver les coordonnées de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement.
+Si vous avez besoin d'aide pour trouver votre circonscription, vous pouvez utiliser cette carte :
 """)
+st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE", label="https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE")
 
 # Function to load the CSV file from GitHub
 @st.cache
@@ -24,17 +25,17 @@ if df is not None:
     circo_values = sorted(df['circo'].unique())  # Sort numerically or alphabetically
 
     # Dropdowns for user input
-    departement = st.selectbox("Select your Département", departement_codes)
-    circonscription = st.selectbox("Select your Circonscription", circo_values)
+    departement = st.selectbox("Choisissez votre département", departement_codes)
+    circonscription = st.selectbox("Choisissez votre circonscription", circo_values)
 
     # Button to submit the selection
-    if st.button("Submit"):
+    if st.button("Soumettre"):
         # Find the matching row
         matching_row = df[(df['departementCode'] == departement) & (df['circo'] == circonscription)]
 
         # Display results
         if not matching_row.empty:
-            st.write("Here are the details of the matching député:")
+            st.write("Voici les coordonnées du député correspondant :")
             st.write(matching_row)
 
             # Extract the Twitter handle from the matching row
@@ -54,7 +55,7 @@ if df is not None:
                 st.write(f"**Tweet Message**: {tweet_message}")
                 st.markdown(f"[Click here to Tweet]({twitter_url})")
             else:
-                st.write("This député does not have a Twitter handle.")
+                st.write("Ce député n'a pas de compte Twitter connu dans notre base.")
             
             ### Facebook Message ###
             if pd.notna(facebook_handle) and facebook_handle != '':
@@ -75,8 +76,8 @@ if df is not None:
                 st.write(f"**Facebook Message**: {facebook_message}")
                 st.markdown(f"[Click here to Post on Facebook]({facebook_url})")
             else:
-                st.write("This député does not have a Facebook handle.")
+                st.write("Ce député n'a pas de compte Facebook connu dans notre base.")
         else:
-            st.write("No matching député found.")
+            st.write("Nous n'avons pas trouvé de député correspondant.")
 else:
-    st.write("Data could not be loaded.")
+    st.write("Erreur : la donnée source n'est pas disponible.")
