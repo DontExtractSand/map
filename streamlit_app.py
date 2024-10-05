@@ -75,7 +75,7 @@ if df is not None:
                 facebook_url = f"https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com&quote={encoded_facebook_message}"
 
                 # Display the link to post on Facebook
-                st.write("**Solution 1 : Interpeler votre député sur Facebook** avec le message suivant :")
+                st.write("**Solution 2 : Interpeler votre député sur Facebook** avec le message suivant :")
                 st.write(f"Votre message Facebook : {facebook_message}")
                 st.markdown(f"[Cliquer ici pour poster sur Facebook]({facebook_url})")
             else:
