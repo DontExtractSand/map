@@ -111,7 +111,7 @@ if df is not None:
 
             # Postcard text
             address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
-            postcard_image_url="https://github.com/DontExtractSand/map/blob/fc79598052c8a270d09e77f2add65036b486c8a1/postcard.jpg"
+            postcard_image_url="https://raw.githubusercontent.com/DontExtractSand/map/refs/heads/main/postcard.jpg"
             postcard_pdf_url="https://www.ecologistes-an.fr/s/Carte-postale-macronistes-1.pdf"
             
             postcard_text = f"""
