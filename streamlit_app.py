@@ -133,6 +133,6 @@ if df is not None:
             st.write(f"**Addresse** (à défaut de permance connue, l'adresse de l'assemblée est utilisée) : {address}")
         
         else:
-            st.write("Nous n'avons pas trouvé de député correspondant.")
+            st.write("Nous n'avons pas trouvé de député correspondant ou le député appartient au RN et ne peut donc pas être rappelé au barrage républicain.")
 else:
     st.write("Erreur : la donnée source n'est pas disponible.")
