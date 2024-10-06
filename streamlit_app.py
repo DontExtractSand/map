@@ -46,6 +46,7 @@ if df is not None:
             first_name = matching_row['prenom'].values[0]
             last_name = matching_row['nom'].values[0]
             civ = matching_row['civ'].values[0]
+            permanence = matching_row['permanence'].values[0]
 
             ### Twitter Message ###
             if pd.notna(twitter_handle) and twitter_handle != '':
@@ -110,7 +111,10 @@ if df is not None:
                 st.write("Ce député n'a pas d'adresse email connue dans notre base.")
 
             # Postcard text
-            address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
+            if permanence != '':
+                address=permanence
+            else:
+                address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
             postcard_image_url="https://raw.githubusercontent.com/DontExtractSand/map/refs/heads/main/postcard.jpg"
             postcard_pdf_url="https://www.ecologistes-an.fr/s/Carte-postale-macronistes-1.pdf"
             
@@ -126,7 +130,7 @@ if df is not None:
 
             # Display recipient and address
             st.write(f"**Destinataire** à préciser : {first_name} {last_name}")
-            st.write(f"**Addresse** : {address}")
+            st.write(f"**Addresse** (à défaut de permance connue, l'adresse de l'assemblée est utilisée) : {address}")
         
         else:
             st.write("Nous n'avons pas trouvé de député correspondant.")
