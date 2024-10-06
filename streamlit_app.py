@@ -3,9 +3,9 @@ import pandas as pd
 import urllib.parse
 
 # Display title and description of the app
-st.title("Parce que nos votes les obligent...")
+st.title("Parce que le barrage républicain ne s'arrête pas après l'élection !")
 st.write("""
-Cette application vous aide à trouver les coordonnées complètes de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement.
+Cette application vous aide à trouver les coordonnées complètes de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement. **Le texte vise les parlementaires élu.e.s avec les voix du barrage républicain, mais à vous de vous assurer que c'est le cas pour votre député**.
 Si vous avez besoin d'aide pour trouver votre circonscription, vous pouvez utiliser cette carte :
 """)
 st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE", label="https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE")
@@ -60,7 +60,7 @@ if df is not None:
                 twitter_url = f"https://twitter.com/intent/tweet?text={encoded_tweet_message}"
 
                 # Display the link to tweet
-                st.write("**Solution 1 : interpeler votre député sur X/Twitter** avec le message suivant :")
+                st.header("**Solution 1 : interpeler votre député sur X/Twitter** avec le message suivant :")
                 st.write(f"Votre tweet : {tweet_message}")
                 st.markdown(f"[Cliquer ici pour twitter ce message]({twitter_url})")
             else:
@@ -80,7 +80,7 @@ if df is not None:
                 facebook_url = f"https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com&quote={encoded_facebook_message}"
 
                 # Display the link to post on Facebook
-                st.write("**Solution 2 : interpeler votre député sur Facebook** avec le message suivant :")
+                st.header("**Solution 2 : interpeler votre député sur Facebook** avec le message suivant :")
                 st.write(f"Votre message Facebook : {facebook_message}")
                 st.markdown(f"[Cliquer ici pour poster sur Facebook]({facebook_url})")
             else:
@@ -102,7 +102,7 @@ if df is not None:
                 mailto_link = f"mailto:{email_address}?subject={encoded_subject}&body={encoded_body}"
 
                 # Display the link to send an email
-                st.write("**Solution 3 : écrivez par email à votre député** avec le message suivant :")
+                st.header("**Solution 3 : écrivez par email à votre député** avec le message suivant :")
                 st.write(f"L'adresse : {email_address}")
                 st.write(f"Le sujet du message : {email_subject}")
                 st.write(f"Votre email : {email_body}")
@@ -123,7 +123,7 @@ if df is not None:
             """
 
             # Display the postcard preview (image)
-            st.write("**Solution 4 : envoyez une carte postale à votre député** avec le message suivant :")
+            st.header("**Solution 4 : envoyez une carte postale à votre député** avec le message suivant :")
             st.write(f"{postcard_text}")
             st.image(postcard_image_url, use_column_width=True)
             st.page_link(postcard_pdf_url, label="Lien vers le PDF pour impression")
