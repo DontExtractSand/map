@@ -13,7 +13,7 @@ st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRAN
 # Function to load the CSV file from GitHub
 @st.cache
 def load_data():
-    url = "https://raw.githubusercontent.com/DontExtractSand/map/refs/heads/main/deputes-active.csv"
+    url = "https://raw.githubusercontent.com/DontExtractSand/map/refs/heads/main/deputes-active-hors-RN.csv"
     data = pd.read_csv(url)
     return data
 
