@@ -111,7 +111,7 @@ if df is not None:
                 st.write("Ce député n'a pas d'adresse email connue dans notre base.")
 
             # Postcard text
-            if permanence != '' and pd.notna(permance) :
+            if permanence != '' and pd.notna(permanence) :
                 address=permanence
             else:
                 address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
