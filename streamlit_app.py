@@ -133,6 +133,32 @@ if df is not None:
             st.write(f"**Addresse** (à défaut de permance connue, l'adresse de l'assemblée est utilisée) : {address}")
         
         else:
-            st.write("Nous n'avons pas trouvé de député correspondant ou le député appartient au RN et ne peut donc pas être rappelé au barrage républicain.")
+            st.write("Nous n'avons pas trouvé de député correspondant ou le député en question est affilité au groupe RN et ne peut donc pas être rappelé au barrage républicain.")
 else:
     st.write("Erreur : la donnée source n'est pas disponible.")
+
+# Pied de page
+st.markdown(
+    """
+    <style>
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f1f1f1;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        color: #333;
+        border-top: 1px solid #ddd;
+    }
+    </style>
+    <div class="footer">
+        Cette application utilise les données de l'opendata de l'assemblée nationale (<a href="https://data.assemblee-nationale.fr/">https://data.assemblee-nationale.fr/</a>) complétées par celles de Vox Public (<a href="https://www.voxpublic.org">https://www.voxpublic.org</a>).<br>
+        Si des données sont erronées ou manquantes, n'hésitez pas à nous en faire part sur <a href="mailto:v357oa1tybmzhgx674lxauwp@systemli.org">v357oa1tybmzhgx674lxauwp@systemli.org</a>.<br>
+        L'envoi des messages reste de la responsabilité des utilisateurs.trices. Il est donc utile d'adapter, valider les messages au regard du propos souhaité, de chaque contexte personnel et des députés destinataires.
+    </div>
+    """,
+    unsafe_allow_html=True
+)
