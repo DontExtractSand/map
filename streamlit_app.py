@@ -3,9 +3,9 @@ import pandas as pd
 import urllib.parse
 
 # Display title and description of the app
-st.title("Parce que le barrage républicain ne s'arrête pas après l'élection !")
+st.title("Parce que le barrage républicain ne s'arrête pas juste après l'élection !")
 st.write("""
-Cette application vous aide à trouver les coordonnées complètes de votre député puis vous permet de l'appeler à voter la censure de ce gouvernement. **Le texte vise les parlementaires élu.e.s avec les voix du barrage républicain, mais à vous de vous assurer que c'est le cas pour votre député**.
+Cette application vous aide à trouver les coordonnées complètes de votre député puis vous permet de l'appeler à voter la censure du gouvernement. **Les messages proposés visent les parlementaires élu.e.s avec les voix du barrage républicain, mais à vous de vous assurer que c'est le cas pour votre député**.
 Si vous avez besoin d'aide pour trouver votre circonscription, vous pouvez utiliser cette carte :
 """)
 st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE", label="https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE")
