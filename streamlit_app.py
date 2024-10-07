@@ -49,6 +49,7 @@ if df is not None:
             permanence = matching_row['permanence'].values[0]
 
             ### Twitter Message ###
+            st.header("**Solution 1 : interpeler votre député sur X/Twitter** avec le message suivant :")
             if pd.notna(twitter_handle) and twitter_handle != '':
                 # Build the tweet message
                 tweet_message = f"{twitter_handle} Sauf erreur de notre part, vous avez été élu·e grâce aux voix du front républicain. Il est encore temps d’en être digne. Votez la censure contre ce Gouvernement qui remet en cause l’état de droit et continuera la casse des services publics."
@@ -60,13 +61,13 @@ if df is not None:
                 twitter_url = f"https://twitter.com/intent/tweet?text={encoded_tweet_message}"
 
                 # Display the link to tweet
-                st.header("**Solution 1 : interpeler votre député sur X/Twitter** avec le message suivant :")
                 st.write(f"Votre tweet : {tweet_message}")
                 st.markdown(f"[Cliquer ici pour twitter ce message]({twitter_url})")
             else:
                 st.write("Ce député n'a pas de compte Twitter connu dans notre base.")
             
             ### Facebook Message ###
+            st.header("**Solution 2 : interpeler votre député sur Facebook** avec le message suivant :")
             if pd.notna(facebook_handle) and facebook_handle != '':
                 # Build the Facebook message
                 facebook_message = f"""
@@ -80,13 +81,13 @@ if df is not None:
                 facebook_url = f"https://www.facebook.com/sharer/sharer.php?u=https://yourwebsite.com&quote={encoded_facebook_message}"
 
                 # Display the link to post on Facebook
-                st.header("**Solution 2 : interpeler votre député sur Facebook** avec le message suivant :")
                 st.write(f"Votre message Facebook : {facebook_message}")
                 st.markdown(f"[Cliquer ici pour poster sur Facebook]({facebook_url})")
             else:
                 st.write("Ce député n'a pas de compte Facebook connu dans notre base.")
 
             ### Email Message ###
+            st.header("**Solution 3 : écrivez par email à votre député** avec le message suivant :")
             if pd.notna(email_address) and email_address != '':
                 # Build the email subject and body
                 email_subject = "Votez la censure pour être digne du front républicain"
@@ -102,7 +103,6 @@ if df is not None:
                 mailto_link = f"mailto:{email_address}?subject={encoded_subject}&body={encoded_body}"
 
                 # Display the link to send an email
-                st.header("**Solution 3 : écrivez par email à votre député** avec le message suivant :")
                 st.write(f"L'adresse : {email_address}")
                 st.write(f"Le sujet du message : {email_subject}")
                 st.write(f"Votre email : {email_body}")
@@ -111,7 +111,7 @@ if df is not None:
                 st.write("Ce député n'a pas d'adresse email connue dans notre base.")
 
             # Postcard text
-            if permanence != '':
+            if permanence != '' and pd.notna(permance) :
                 address=permanence
             else:
                 address="Assemblée nationale - 126 Rue de l'Université, 75355 Paris 07 SP"
