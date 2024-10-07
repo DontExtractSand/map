@@ -11,7 +11,7 @@ Si vous avez besoin d'aide pour trouver votre circonscription, vous pouvez utili
 st.page_link("https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE", label="https://www2.assemblee-nationale.fr/recherche-localisee/carte/FRANCE")
 
 # Function to load the CSV file from GitHub
-@st.cache
+@st.cache_data
 def load_data():
     url = "https://raw.githubusercontent.com/DontExtractSand/map/refs/heads/main/deputes-active-hors-RN.csv"
     data = pd.read_csv(url)
